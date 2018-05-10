@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var xml = XMLHttpRequest ? new XMLHttpRequest() : ActiveXObject('Microsoft.XMLHTTP');
+    xml.open('get', 'http://localhost:8009/getUser?minsize=200&maxsize=300', true);
+    xml.onload = function(res) {
+        if (res.target.status === 200) {
+            var data = JSON.parse(res.target.response);
+            var imgs = document.createElement('img');
+            var p = document.createElement('p');
+            imgs.src = data.src;
+            p.innerText = "图片大小是:" + data.size + ";图片创建时间:" + data.time;
+            document.body.appendChild(imgs);
+            document.body.appendChild(p);
+
+
+        }
+    }
+    xml.send(null);
+</script>
+
+</html>

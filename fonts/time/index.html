@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var xml = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+        xml.open('get', '/index?minsize=100&&maxsize=200', true);
+        xml.onload = function(res) {
+            if (res.target.status === 200) {
+                var data = JSON.parse(res.target.response);
+                var img = document.createElement('img');
+                var p = document.createElement('p');
+                img.src = data.src;
+                p.innerText = '图片大小为' + data.size + '图片创建时间为' + data.time;
+                document.body.appendChild(img);
+                document.body.appendChild(p);
+            }
+        }
+        xml.send(null);
+    </script>
+</body>
+
+</html>

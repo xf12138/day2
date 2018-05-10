@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="fonts/iconfont.css">
+</head>
+
+<body>
+    <div class="box">
+        <header>
+            <span><</span>
+            <span>无连接</span>
+            <b>
+                <i class="icon iconfont icon-xinlangweibo11"></i>
+                <i class="icon iconfont icon-01"></i>
+            </b>
+        </header>
+        <div class="bos">
+            <ul>
+                <li>
+                    电源
+                </li>
+                <li>首页</li>
+                <li>菜单</li>
+                <li>截屏</li>
+            </ul>
+            <ol>
+                <li><img src="img/1.jpg" alt=""></li>
+                <li><img src="img/2.jpg" alt=""></li>
+                <li><img src="img/3.jpg" alt=""></li>
+                <li><img src="img/4.jpg" alt=""></li>
+            </ol>
+        </div>
+    </div>
+</body>
+<script src="jquery-1.8.3.min.js"></script>
+<script>
+    var lis = $('ol li').length;
+    var liw = $('ol li').outerWidth();
+
+    $('.box ul li').on("click", function() {
+        // alert(1);
+        for (var i = 0; i < lis.length; i++) {
+            $('ol li').stop().animate({
+                left: $('ol li').width()
+            })
+        }
+    })
+</script>
+
+</html>
